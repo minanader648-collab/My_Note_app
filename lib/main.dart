@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_note/models/note_model.dart';
 import 'package:my_note/views/notes_views.dart';
 import 'package:my_note/simple_bloc_observer.dart';
-import 'package:my_note/cubits/add_note_cubit/add_note_cubit.dart';
 
 void main() async {
   await Hive.initFlutter();
