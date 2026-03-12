@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_note/models/note_model.dart';
 import 'package:my_note/views/widgets/CustomBottom_Add.dart';
+import 'package:my_note/views/widgets/colors_list_view.dart';
 import 'package:my_note/views/widgets/custom_text_field.dart';
 import 'package:my_note/cubits/add_note_cubit/add_note_cubit.dart';
 
@@ -39,6 +40,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subTitle = value;
             },
           ),
+          const ColorListView(),
           const SizedBox(height: 25.0),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
@@ -48,7 +50,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     var currentDate = DateTime.now();
-                    var formattedCurrentDate = DateFormat('yyyy-MM-dd').format(currentDate);
+                    var formattedCurrentDate = DateFormat(
+                      'yyyy-MM-dd',
+                    ).format(currentDate);
                     var noteModel = NoteModel(
                       title: title!,
                       subTitle: subTitle!,
@@ -70,3 +74,5 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
+
